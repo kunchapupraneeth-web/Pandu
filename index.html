@@ -1,54 +1,27 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pandu Website</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      text-align: center;
-    }
-
-    header {
-      background: #111;
-      color: white;
-      padding: 25px;
-    }
-
-    .card {
-      background: white;
-      margin: 30px auto;
-      padding: 25px;
-      max-width: 400px;
-      border-radius: 15px;
-      box-shadow: 0 3px 10px #ccc;
-    }
-
-    button {
-      padding: 12px 25px;
-      border: none;
-      border-radius: 8px;
-      background: #222;
-      color: white;
-      font-size: 16px;
-    }
-  </style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pandu Game</title>
+<style>
+body{background:#000;color:#fff;text-align:center;font-family:Arial;padding:20px;margin:0}
+h1{color:#facc15}
+#box{width:300px;height:300px;background:#222;border:2px solid #facc15;margin:20px auto;position:relative;border-radius:15px}
+#dot{width:50px;height:50px;background:#facc15;border-radius:50%;position:absolute;display:none}
+button{padding:12px 25px;background:#facc15;border:none;border-radius:10px;font-weight:bold;font-size:18px}
+</style>
 </head>
-
 <body>
-
-  <header>
-    <h1>Pandu</h1>
-    <p>Welcome to my website</p>
-  </header>
-
-  <div class="card">
-    <h2>Hello 👋</h2>
-    <p>This is my first website.</p>
-    <button onclick="alert('Welcome!')">Click Me</button>
-  </div>
-
+<h1>Pandu Tap Game 🔥</h1>
+<p id="sc">Score: 0 | Time: 30</p>
+<button onclick="start()">Start Game</button>
+<div id="box"><div id="dot" onclick="tap()"></div></div>
+<script>
+let s=0,t=30,a,b;
+function start(){s=0;t=30;document.getElementById('dot').style.display='block';move();clearInterval(a);clearInterval(b);a=setInterval(()=>{t--;document.getElementById('sc').innerText='Score: '+s+' | Time: '+t;if(t<=0){clearInterval(a);clearInterval(b);alert('Game Over! Score: '+s)}},1000);b=setInterval(move,800)}
+function move(){let d=document.getElementById('dot');let bx=document.getElementById('box');d.style.left=Math.random()*250+'px';d.style.top=Math.random()*250+'px'}
+function tap(){s++;document.getElementById('sc').innerText='Score: '+s+' | Time: '+t;move()}
+</script>
 </body>
 </html>
