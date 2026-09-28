@@ -3,25 +3,30 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pandu Game</title>
+<title>Pandu Pro Game - Play & Win</title>
 <style>
-body{background:#000;color:#fff;text-align:center;font-family:Arial;padding:20px;margin:0}
-h1{color:#facc15}
-#box{width:300px;height:300px;background:#222;border:2px solid #facc15;margin:20px auto;position:relative;border-radius:15px}
-#dot{width:50px;height:50px;background:#facc15;border-radius:50%;position:absolute;display:none}
-button{padding:12px 25px;background:#facc15;border:none;border-radius:10px;font-weight:bold;font-size:18px}
+body{background:#000;color:#fff;text-align:center;font-family:Arial;margin:0;padding:10px}
+h1{color:#facc15;font-size:28px}
+#ad-top{width:100%;height:90px;background:#111;border:1px dashed #555;display:flex;align-items:center;justify-content:center;color:#888;margin:10px 0}
+#box{width:320px;height:400px;background:#1a1a1a;border:2px solid #facc15;margin:15px auto;position:relative;border-radius:15px;overflow:hidden}
+#dot{width:60px;height:60px;background:radial-gradient(#facc15,#ff8c00);border-radius:50%;position:absolute;display:none;box-shadow:0 0 15px #facc15}
+button{padding:14px 30px;background:#facc15;border:none;border-radius:12px;font-weight:bold;font-size:20px}
+#ad-bottom{width:100%;height:90px;background:#111;border:1px dashed #555;display:flex;align-items:center;justify-content:center;color:#888;margin:10px 0}
 </style>
 </head>
 <body>
-<h1>Pandu Tap Game 🔥</h1>
+<h1>Pandu Pro Tap 🔥</h1>
+<div id="ad-top">Ads Come Here - Earn Money</div>
 <p id="sc">Score: 0 | Time: 30</p>
-<button onclick="start()">Start Game</button>
+<button onclick="start()">START & EARN</button>
 <div id="box"><div id="dot" onclick="tap()"></div></div>
+<div id="ad-bottom">Ads Come Here - Earn Money</div>
+<p style="color:#aaa">Share with friends & get more views!</p>
 <script>
 let s=0,t=30,a,b;
-function start(){s=0;t=30;document.getElementById('dot').style.display='block';move();clearInterval(a);clearInterval(b);a=setInterval(()=>{t--;document.getElementById('sc').innerText='Score: '+s+' | Time: '+t;if(t<=0){clearInterval(a);clearInterval(b);alert('Game Over! Score: '+s)}},1000);b=setInterval(move,800)}
-function move(){let d=document.getElementById('dot');let bx=document.getElementById('box');d.style.left=Math.random()*250+'px';d.style.top=Math.random()*250+'px'}
-function tap(){s++;document.getElementById('sc').innerText='Score: '+s+' | Time: '+t;move()}
+function start(){s=0;t=30;document.getElementById('dot').style.display='block';move();clearInterval(a);clearInterval(b);a=setInterval(()=>{t--;document.getElementById('sc').innerText='Score: '+s+' | Time: '+t;if(t<=0){clearInterval(a);clearInterval(b);alert('Super Pandu! Score: '+s+' Share chey!')}},1000);b=setInterval(move,700)}
+function move(){let d=document.getElementById('dot');d.style.left=Math.random()*260+'px';d.style.top=Math.random()*340+'px'}
+function tap(){s++;document.getElementById('sc').innerText='Score: '+s+' | Time: '+t;move();if(navigator.vibrate)navigator.vibrate(50)}
 </script>
 </body>
 </html>
